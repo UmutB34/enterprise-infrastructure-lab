@@ -1,0 +1,16 @@
+# Never commit secrets or real configuration
+.env
+.env.*
+*.key
+*.pem
+id_*
+!*.example
+*.log
+secrets/
+private/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,8 @@
+# Sanitized example — not real key material.
+#
+# Admin key: normal interactive access (admin workstation only).
+ssh-ed25519 AAAA...EXAMPLE admin-workstation
+#
+# Docs pull key: may only run a read-only git fetch of one repository.
+# No shell, no port/agent/X11 forwarding, no pty, no push.
+restrict,command="git-upload-pack '/srv/infra-docs'" ssh-ed25519 AAAA...EXAMPLE docs-pull

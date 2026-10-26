@@ -1,0 +1,2 @@
+# Sanitized example: pull canonical docs every 15 minutes.
+*/15 * * * * /usr/local/bin/sync-docs.sh
