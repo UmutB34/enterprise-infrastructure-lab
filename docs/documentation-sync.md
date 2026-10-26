@@ -1,4 +1,4 @@
-# Documentation as Code — One-way Distribution
+# Documentation as code: one-way distribution
 
 ## Problem
 
