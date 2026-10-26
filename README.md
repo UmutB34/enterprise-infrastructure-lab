@@ -27,6 +27,7 @@ flowchart TD
 | Area | Document | Status |
 |---|---|---|
 | Whole stack, hardware to services | docs/end-to-end-architecture.md | in use |
+| Topology diagrams and layers (host, containers, VMs, app and service layers) | docs/topology.md | in use |
 | Layered architecture and decisions | docs/architecture.md | in use |
 | Administrative access model | docs/access-model.md | in use |
 | Documentation as code | docs/documentation-sync.md | in use |
