@@ -21,6 +21,10 @@ How changes are proven before anyone calls them done. The same approach applies 
 4. **Dated results are labelled with their date.** An old pass is not today's pass.
 5. **Security checks are deterministic.** Scores and findings come from rules, never from a language model's guess.
 
+## Static policy checks
+
+Some rules are checked by reading the code, not by running it. A test over all database migrations forbids destructive statements, and another keeps secret names out of browser-visible settings. These tests catch design mistakes early: during one change the first draft put a data-retention purge inside a migration, the policy test refused it, and the purge moved to application code.
+
 ## Feature audit
 
 Every visible control is classed as active, partial or coming soon. A missing capability is shown as disabled, never as a plausible placeholder. The audit is repeated after each larger change and the status document is corrected to match.

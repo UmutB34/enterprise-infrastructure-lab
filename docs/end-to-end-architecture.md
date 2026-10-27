@@ -41,6 +41,7 @@ Roles are separated so that a fault or compromise in one does not share files or
 ## 4. Products
 
 - **Security monitoring product (Korantix).** Checks a domain's public e-mail and web security posture from public data only. Findings and scores come from deterministic rules. Tenants are separated with row-level security, proven by negative tests. Billing runs behind a provider-neutral layer.
+- **Measurement.** Usage is measured with minimal first-party events, not with personal data, so real use can be told from bots. See measurement-and-privacy.md.
 - **Automation workflows.** A form-driven workflow that turns messy files into structured records, with explainable matching and human approval.
 - **Desktop app.** A small Windows application with an animation and behaviour engine.
 
@@ -71,7 +72,7 @@ One management screen shows progress, decisions waiting, status of the products 
 
 ## 9. Scheduled routines
 
-Daily and weekly status reports and a nightly read-only intelligence sweep run on a schedule. Backups run daily with an automated restore test, and an independent copy is kept at a hosted git service.
+Daily and weekly status reports and a nightly read-only intelligence sweep run on a schedule. Backups run daily with an automated restore test, and an independent copy is kept at a hosted git service. A daily job also deletes expired measurement rows.
 
 ## Principles that run through every layer
 

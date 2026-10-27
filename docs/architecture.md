@@ -31,6 +31,10 @@ Work is routed by one coordinating role to specialist agents. A work queue contr
 
 A web product for domain and e-mail security monitoring. Security findings and scores come from deterministic rules, not from a language model. Customer data is separated per tenant with row-level security, and the separation is checked with deliberate negative tests. Billing sits behind a provider-neutral layer so the payment provider can change without touching product code.
 
+### Measurement
+
+The product records one minimal, privacy-minimised event per completed public action so that real use can be told from automated traffic. No addresses, user-agent text or cookies are stored, rows expire after 90 days, and the privacy notice changes in the same release. See measurement-and-privacy.md and ADR 0002.
+
 ## Quality layer
 
 Changes are checked at several levels before anyone calls them done. See quality-engineering.md.
@@ -40,6 +44,7 @@ Changes are checked at several levels before anyone calls them done. See quality
 - Every open question has an age and a status in a decision register.
 - Reports claim only what command output or a delivered artifact proves.
 - Approvals for release, visual sign-off and outward actions can only be given by a human.
+- Changes to production data stores and to what the privacy notice promises need a person; the notice ships with the code that needs it.
 - Work runs in economy, normal or deep mode so cost and effort stay predictable.
 
 ## Design decisions

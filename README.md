@@ -19,6 +19,7 @@ flowchart TD
   KNOW[Knowledge vault and decision register] <--> ENG[Work engine: roles, queue, evidence gate]
   ENG --> ENGINES[Engine chain: subscription, free, local]
   ENG --> PROD
+  PROD --> MEAS[Measurement: privacy-minimised events]
   OWNER[Owner surface] --> ENG
 ```
 
@@ -34,11 +35,12 @@ flowchart TD
 | Network segmentation and firewalling | docs/network-segmentation.md | reference pattern |
 | Backup and recovery | docs/backup-recovery.md | reference pattern |
 | Quality engineering (QA, E2E, release gates) | docs/quality-engineering.md | in use |
+| Product measurement with privacy by design | docs/measurement-and-privacy.md | reference pattern; implemented and tested, production rollout pending |
 | Agent engine design | docs/agent-engine.md | in use |
 | Personal knowledge system | docs/second-brain-knowledge-system.md | in use |
 | Architecture decision records | docs/adr/ | in use |
 
-Status: 'in use' means practiced in the lab. 'Reference pattern' means a design written for production-style use.
+Status: 'in use' means practiced in the lab. 'Reference pattern' means a design written for production-style use; where code exists, the status line says how far it has been rolled out.
 
 ## Principles
 
