@@ -1,0 +1,29 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":30,"rankSpacing":30},"themeVariables":{"lineColor":"#5B7BA6","primaryColor":"#EEF3FA","primaryBorderColor":"#5B7BA6","primaryTextColor":"#1D3557"}}}%%
+flowchart TB
+  classDef gov  fill:#FFF4E0,stroke:#C98A1B,color:#5A3B00,stroke-width:1.5px
+  classDef own  fill:#EAF0F8,stroke:#5B7BA6,color:#1D3557,stroke-width:1.5px
+  classDef eng  fill:#E8F3EC,stroke:#3D8B5A,color:#17432A,stroke-width:1.5px
+  classDef prod fill:#F1ECFA,stroke:#7A5BB0,color:#2E1D57,stroke-width:1.5px
+  classDef qa   fill:#FBECEC,stroke:#B24A4A,color:#5C1E1E,stroke-width:1.5px
+  classDef know fill:#E6F4F7,stroke:#2F8FA3,color:#0F3F4A,stroke-width:1.5px
+  classDef plat fill:#EDEDED,stroke:#6B6B6B,color:#222222,stroke-width:1.5px
+
+  GOV["<b>GOVERNANCE</b><br/>decision register with ages<br/>approval gates only a human passes<br/>evidence before claims"]
+  OWN["<b>OWNER SURFACE</b><br/>one management screen<br/>progress · decisions waiting · alerts"]
+  ENG["<b>WORK ENGINE</b><br/>coordinator and specialist roles<br/>work queue · engine chain"]
+  PRD["<b>PRODUCTS</b><br/>security monitoring · automation workflows<br/>privacy-minimised measurement"]
+  QA["<b>QUALITY</b><br/>unit · integration · negative · end-to-end<br/>visual · accessibility · human-signed release"]
+  PLT["<b>PLATFORM</b><br/>hypervisor · containers · VMs · private access<br/>backup with restore test · documentation sync"]
+  KNW["<b>KNOWLEDGE</b><br/>notes vault · hybrid search<br/>canonical documents"]
+
+  GOV -.->|"constrains every layer"| OWN
+  OWN --> ENG --> PRD --> QA --> PLT
+  ENG <-->|"read and write"| KNW
+
+  class GOV gov
+  class OWN own
+  class ENG eng
+  class PRD prod
+  class QA qa
+  class PLT plat
+  class KNW know

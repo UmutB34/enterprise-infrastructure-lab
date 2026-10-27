@@ -1,0 +1,15 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":26,"rankSpacing":40},"themeVariables":{"lineColor":"#5B7BA6","primaryColor":"#EEF3FA","primaryBorderColor":"#5B7BA6","primaryTextColor":"#1D3557"}}}%%
+flowchart LR
+  classDef src  fill:#1D3557,stroke:#1D3557,color:#FFFFFF,stroke-width:1.5px
+  classDef cons fill:#EAF0F8,stroke:#5B7BA6,color:#1D3557,stroke-width:1.5px
+  classDef sink fill:#E8F3EC,stroke:#3D8B5A,color:#17432A,stroke-width:1.5px
+  classDef ctl  fill:#FFF4E0,stroke:#C98A1B,color:#5A3B00,stroke-width:1.5px
+
+  SRC["Source repository<br/>the only writable copy"]
+  C1["Container copy A<br/>read-only"]
+  C2["Container copy B<br/>read-only"]
+  SRC -->|"scheduled pull<br/>restricted key"| C1
+  SRC -->|"scheduled pull<br/>restricted key"| C2
+
+  class SRC src
+  class C1,C2 cons

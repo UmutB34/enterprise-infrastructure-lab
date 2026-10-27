@@ -1,0 +1,19 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":26,"rankSpacing":40},"themeVariables":{"lineColor":"#5B7BA6","primaryColor":"#EEF3FA","primaryBorderColor":"#5B7BA6","primaryTextColor":"#1D3557"}}}%%
+flowchart LR
+  classDef cons fill:#EAF0F8,stroke:#5B7BA6,color:#1D3557,stroke-width:1.5px
+  classDef sink fill:#E8F3EC,stroke:#3D8B5A,color:#17432A,stroke-width:1.5px
+  classDef ctl  fill:#FFF4E0,stroke:#C98A1B,color:#5A3B00,stroke-width:1.5px
+
+  ACT["Completed<br/>public action"]
+  EVT["Minimal event<br/>no address · no user-agent · no cookie"]
+  STORE["Server-only table<br/>no browser access"]
+  REP["Human-traffic report"]
+  PURGE["Daily purge<br/>rows older than 90 days"]
+
+  ACT -->|"after the response"| EVT --> STORE
+  STORE --> REP
+  STORE --> PURGE
+
+  class ACT cons
+  class EVT,PURGE ctl
+  class STORE,REP sink

@@ -1,0 +1,45 @@
+%%{init: {"theme":"base","flowchart":{"curve":"basis","nodeSpacing":26,"rankSpacing":44},"themeVariables":{"lineColor":"#5B7BA6","primaryColor":"#EEF3FA","primaryBorderColor":"#5B7BA6","primaryTextColor":"#1D3557","clusterBkg":"#F7F9FC","clusterBorder":"#C5D1E3"}}}%%
+flowchart TB
+  classDef use  fill:#E8F3EC,stroke:#3D8B5A,color:#17432A,stroke-width:1.5px
+  classDef idle fill:#F6F3E4,stroke:#A09034,color:#4A4310,stroke-width:1.5px,stroke-dasharray:4 3
+  classDef plan fill:#FBECEC,stroke:#B24A4A,color:#5C1E1E,stroke-width:1.5px,stroke-dasharray:6 4
+  classDef ext  fill:#EAF0F8,stroke:#5B7BA6,color:#1D3557,stroke-width:1.5px
+  classDef core fill:#1D3557,stroke:#1D3557,color:#FFFFFF,stroke-width:1.5px
+
+  OWNER["Owner devices<br/>phone · desktop"]
+  MESH["Private mesh VPN<br/>the only way in from outside"]
+
+  subgraph HOST["Host: mini PC · 12-core CPU · 64 GB RAM · NVMe"]
+    PVE["Proxmox VE hypervisor<br/>thin-provisioned local storage"]
+    subgraph CT["Containers · one role each"]
+      DEV["Engineering workspace<br/>owner app · coding agent · tests"]
+      BOARD["Task platform<br/>roles · evidence gate"]
+      AGENT["Agent gateway<br/>runtime · model gateway"]
+      AUTO["Automation pilot<br/>pilot data only"]
+      OBS["Observability PoC<br/>synthetic data only"]
+    end
+    subgraph VM["Virtual machines"]
+      WIN["Windows Server 2025<br/>directory · DNS · group policy"]
+      SEC["Security monitoring VM<br/>detection practice"]
+    end
+    FW["Firewall and VLAN segmentation<br/>PLANNED, not built"]
+  end
+
+  BKP["Scheduled backups<br/>automated restore test"]
+  GITX["Hosted git copy<br/>docs and code"]
+
+  OWNER -->|"private tunnel"| MESH
+  MESH --> DEV
+  DEV -->|"opens task"| BOARD
+  BOARD -->|"assigns role and brief"| AGENT
+  PVE --- CT
+  PVE --- VM
+  PVE -->|"daily"| BKP
+  DEV -->|"push"| GITX
+  FW -.->|"will front"| PVE
+
+  class PVE core
+  class OWNER,MESH,GITX,BKP ext
+  class DEV,BOARD,AGENT,AUTO,WIN use
+  class OBS,SEC idle
+  class FW plan
