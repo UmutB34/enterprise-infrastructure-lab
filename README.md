@@ -56,6 +56,7 @@ The layers, from governance down to the platform. Topology, data flows and the h
 | Network segmentation and firewalling | docs/network-segmentation.md | reference pattern |
 | Backup and recovery | docs/backup-recovery.md | reference pattern |
 | Quality engineering (QA, E2E, release gates) | docs/quality-engineering.md | in use |
+| Runnable examples: restore test, docs sync, access, Ansible, Terraform | examples/ | restore test runs and is tested; others checked, see examples/README.md |
 | Product measurement with privacy by design | docs/measurement-and-privacy.md | reference pattern; implemented and tested, production rollout pending |
 | Agent engine design | docs/agent-engine.md | in use |
 | Personal knowledge system | docs/second-brain-knowledge-system.md | in use |

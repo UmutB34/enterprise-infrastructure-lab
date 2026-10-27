@@ -1,0 +1,56 @@
+---
+# Baseline for a Debian/Ubuntu container or VM: key-only SSH, automatic security
+# updates, a default-deny firewall. Idempotent: run it again and nothing changes.
+#
+#   ansible-playbook -i inventory.ini examples/ansible/baseline.yml --check --diff   # preview
+#   ansible-playbook -i inventory.ini examples/ansible/baseline.yml                 # apply
+#
+# Keep a second SSH session open while applying SSH changes.
+- name: Baseline hardening
+  hosts: all
+  become: true
+  vars:
+    ssh_port: 22
+  tasks:
+    - name: Install security tooling
+      ansible.builtin.apt:
+        name: [unattended-upgrades, ufw]
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Disable password and root login over SSH
+      ansible.builtin.copy:
+        dest: /etc/ssh/sshd_config.d/10-baseline.conf
+        mode: "0644"
+        content: |
+          PasswordAuthentication no
+          PermitRootLogin prohibit-password
+          KbdInteractiveAuthentication no
+      notify: Reload sshd
+
+    - name: Enable unattended security upgrades
+      ansible.builtin.copy:
+        dest: /etc/apt/apt.conf.d/20auto-upgrades
+        mode: "0644"
+        content: |
+          APT::Periodic::Update-Package-Lists "1";
+          APT::Periodic::Unattended-Upgrade "1";
+
+    - name: Allow SSH before enabling the firewall
+      community.general.ufw:
+        rule: allow
+        port: "{{ ssh_port }}"
+        proto: tcp
+
+    - name: Default deny incoming, allow outgoing, enable
+      community.general.ufw:
+        state: enabled
+        default: deny
+        direction: incoming
+
+  handlers:
+    - name: Reload sshd
+      ansible.builtin.service:
+        name: ssh
+        state: reloaded

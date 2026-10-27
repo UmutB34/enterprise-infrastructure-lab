@@ -1,0 +1,8 @@
+# Server-side line in the documentation host's authorized_keys.
+# The pull key may only run git-upload-pack for one repository: no shell, no push,
+# no port or agent forwarding, no terminal. Replace the key and the path.
+#
+# Edit authorized_keys one change at a time and keep a second session open until you
+# have tested the new line; a single bad edit can lock out every key.
+
+command="git-upload-pack '/srv/docs.git'",no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPLEEXAMPL docs-pull-key
