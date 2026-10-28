@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security or sanitization concern privately
+    url: https://github.com/UmutBecan/enterprise-infrastructure-lab/security/advisories/new
+    about: Use a private advisory if the report would repeat a sensitive detail.
