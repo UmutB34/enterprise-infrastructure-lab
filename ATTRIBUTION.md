@@ -8,7 +8,7 @@ You may share and adapt them, including commercially, **provided you give approp
 ## How to credit
 Use this wording, or equivalent, where the material is used (page, slide, document footer, README, course material):
 
-> Based on *Enterprise Infrastructure Lab* by T@ng0 (github.com/UmutB34), https://github.com/UmutBecan/enterprise-infrastructure-lab, licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+> Based on *Enterprise Infrastructure Lab* by Umut Becan, https://github.com/UmutBecan/enterprise-infrastructure-lab, licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
 
 If you changed the material, add: "Changes were made." Do not suggest that the author endorses you or your use.
 
