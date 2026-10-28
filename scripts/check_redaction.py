@@ -10,6 +10,8 @@ from pathlib import Path
 DOC = [ipaddress.ip_network(n) for n in ("192.0.2.0/24", "198.51.100.0/24", "203.0.113.0/24")]
 IP = re.compile(r"\b(\d{1,3}(?:\.\d{1,3}){3})\b")
 MAIL = re.compile(r"[\w.+-]+@[\w-]+\.[\w.]+")
+# The author's own public contact address, published deliberately in README.md.
+ALLOWED_MAIL = {"destek@korantix.io"}
 
 
 def scan(text):
@@ -22,7 +24,8 @@ def scan(text):
         if not any(ip in n for n in DOC):
             problems.append("ip " + m.group(1))
     for m in MAIL.finditer(text):
-        problems.append("email " + m.group(0))
+        if m.group(0).lower() not in ALLOWED_MAIL:
+            problems.append("email " + m.group(0))
     return problems
 
 

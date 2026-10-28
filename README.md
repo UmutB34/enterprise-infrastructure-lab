@@ -82,4 +82,5 @@ All host names, addresses and identifiers are removed or replaced. Example addre
 
 ## License
 
-MIT. See LICENSE.
+Documents: [CC BY 4.0](LICENSE). **Attribution is required**, see [ATTRIBUTION.md](ATTRIBUTION.md) for the wording.
+Software and examples (`examples/`, `scripts/`, `tests/`, `Makefile`): [MIT](LICENSE-CODE).

@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use these materials, please credit them as below (CC BY 4.0)."
+title: "Enterprise Infrastructure Lab"
+type: dataset
+authors:
+  - name: "T@ng0 (github.com/UmutB34)"
+repository-code: "https://github.com/UmutBecan/enterprise-infrastructure-lab"
+url: "https://github.com/UmutBecan/enterprise-infrastructure-lab"
+license:
+  - CC-BY-4.0
+  - MIT
